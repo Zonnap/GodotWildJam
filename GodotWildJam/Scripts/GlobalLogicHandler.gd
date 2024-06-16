@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	get_tree().change_scene_to_file("res://Scene/Root.tscn")
 
 
 func _on_root_ready_to_transfer():

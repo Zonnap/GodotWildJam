@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/GlobalLogicHandler.gd" id="1_gpfb8"]
 [ext_resource type="PackedScene" uid="uid://0j7d73v8y531" path="res://Scene/MainMenu.tscn" id="1_phtja"]
-[ext_resource type="PackedScene" uid="uid://xdvb4s22h32k" path="res://Scene/Root.tscn" id="2_f5lth"]
+[ext_resource type="PackedScene" uid="uid://xdvb4s22h32k" path="res://Scene/root.tscn" id="2_f5lth"]
 [ext_resource type="PackedScene" uid="uid://d32ald5sp7a3a" path="res://Scene/GameOver.tscn" id="3_d25gb"]
 [ext_resource type="PackedScene" uid="uid://bnea4htqmggj2" path="res://Scene/GameWin.tscn" id="4_5atxe"]
 
