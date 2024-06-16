@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://d6qy0cdartk8"]
+
+[ext_resource type="Script" path="res://Scripts/Wolf.gd" id="1_rmrbm"]
+
+[sub_resource type="Gradient" id="Gradient_ty6vq"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vords"]
+gradient = SubResource("Gradient_ty6vq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atqpt"]
+size = Vector2(252, 598)
+
+[node name="Wolf" type="CharacterBody2D" groups=["Wolf"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_rmrbm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 296.25)
+scale = Vector2(1, 593.5)
+texture = SubResource("GradientTexture1D_vords")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 297)
+shape = SubResource("RectangleShape2D_atqpt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 297)
+shape = SubResource("RectangleShape2D_atqpt")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

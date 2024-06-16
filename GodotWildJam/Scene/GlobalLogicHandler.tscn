@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://csdkapkiakh3j"]
+
+[ext_resource type="Script" path="res://Scripts/GlobalLogicHandler.gd" id="1_gpfb8"]
+[ext_resource type="PackedScene" uid="uid://0j7d73v8y531" path="res://Scene/MainMenu.tscn" id="1_phtja"]
+[ext_resource type="PackedScene" uid="uid://xdvb4s22h32k" path="res://Scene/Root.tscn" id="2_f5lth"]
+[ext_resource type="PackedScene" uid="uid://d32ald5sp7a3a" path="res://Scene/GameOver.tscn" id="3_d25gb"]
+[ext_resource type="PackedScene" uid="uid://bnea4htqmggj2" path="res://Scene/GameWin.tscn" id="4_5atxe"]
+
+[node name="GlobalLogicHandler" type="Node2D"]
+script = ExtResource("1_gpfb8")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_phtja")]
+
+[node name="Root" parent="." instance=ExtResource("2_f5lth")]
+
+[node name="GameOver" parent="." instance=ExtResource("3_d25gb")]
+
+[node name="GameWin" parent="." instance=ExtResource("4_5atxe")]
+
+[connection signal="WolfSpeed" from="MainMenu" to="Root" method="_on_main_menu_wolf_speed"]
+[connection signal="ReadyToTransfer" from="Root" to="." method="_on_root_ready_to_transfer"]

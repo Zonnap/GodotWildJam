@@ -1,3 +1,71 @@
-[gd_scene format=3 uid="uid://xdvb4s22h32k"]
+[gd_scene load_steps=9 format=3 uid="uid://xdvb4s22h32k"]
+
+[ext_resource type="PackedScene" uid="uid://bogpd62jgqgff" path="res://Scene/Player.tscn" id="1_7al8h"]
+[ext_resource type="Script" path="res://Scripts/Root.gd" id="1_c075k"]
+[ext_resource type="PackedScene" uid="uid://7cs8ft5mbcjt" path="res://Scene/Goal.tscn" id="2_f72wo"]
+[ext_resource type="PackedScene" uid="uid://bxr0lbadh1nnh" path="res://Scene/Trap.tscn" id="3_0lq3o"]
+[ext_resource type="PackedScene" uid="uid://d6qy0cdartk8" path="res://Scene/Wolf.tscn" id="4_vmrg6"]
+
+[sub_resource type="Gradient" id="Gradient_4mt38"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mlr6o"]
+gradient = SubResource("Gradient_4mt38")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhx0h"]
+size = Vector2(255.333, 1.01075)
 
 [node name="Root" type="Node2D"]
+script = ExtResource("1_c075k")
+
+[node name="Player" parent="." instance=ExtResource("1_7al8h")]
+position = Vector2(33, 572)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 624)
+scale = Vector2(4.5, 46.5)
+texture = SubResource("GradientTexture1D_mlr6o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(0.111099, 0.0107527)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_mhx0h")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-320, 624)
+scale = Vector2(4.5, 46.5)
+texture = SubResource("GradientTexture1D_mlr6o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/StaticBody2D"]
+position = Vector2(0.44442, 0.0215054)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_mhx0h")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(201, 537)
+scale = Vector2(0.674282, 38.0001)
+texture = SubResource("GradientTexture1D_mlr6o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/StaticBody2D"]
+position = Vector2(1.48306, -0.0263157)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_mhx0h")
+
+[node name="Goal" parent="." instance=ExtResource("2_f72wo")]
+position = Vector2(1133, 581)
+
+[node name="Trap" parent="." instance=ExtResource("3_0lq3o")]
+position = Vector2(390, 589)
+
+[node name="Wolf" parent="." instance=ExtResource("4_vmrg6")]
+position = Vector2(-451, 5)
+
+[connection signal="WolfSpeedFromMain" from="." to="Wolf" method="_on_root_wolf_speed_from_main"]
+[connection signal="BodyEntered" from="Goal" to="Player" method="_on_goal_body_entered"]
+[connection signal="TrapEntered" from="Trap" to="Player" method="_on_trap_trap_entered"]
+[connection signal="PlayerKilled" from="Wolf" to="Player" method="_on_wolf_player_killed"]
