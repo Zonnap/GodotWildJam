@@ -16,7 +16,7 @@ func _physics_process(_delta):
 
 
 func _on_area_2d_body_entered(body):
-	queue_free()
 	if body.is_in_group("Player"):
+		queue_free()
 		emit_signal("PlayerKilled")
 	
