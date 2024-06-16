@@ -46,6 +46,7 @@ func _on_coyote_time_timeout():
 
 func _on_goal_body_entered():
 	#Moves to Win Screen
+	queue_free()
 	get_tree().change_scene_to_file("res://Scene/GameWin.tscn")
 
 func _on_trap_trap_entered():

@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://d32ald5sp7a3a"]
+[gd_scene load_steps=2 format=3 uid="uid://d32ald5sp7a3a"]
+
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_a08bf"]
 
 [node name="GameOver" type="Node2D"]
+script = ExtResource("1_a08bf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 567.0
+offset_top = 319.0
+offset_right = 607.0
+offset_bottom = 359.0
+
+[node name="Retry" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
