@@ -1,15 +1,19 @@
 extends Node2D
 
+var WolfSpeedValue = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	get_tree().change_scene_to_file("res://Scene/Root.tscn")
+func _process(_delta):
+	pass
+	
+func WolfSpeedSetter(WolfSpeed):
+	WolfSpeedValue = WolfSpeed
+	
+func WolfSpeedGetter():
+	return WolfSpeedValue
 
-
-func _on_root_ready_to_transfer():
-	get_tree().change_scene_to_file("res://Scene/Root.tscn")

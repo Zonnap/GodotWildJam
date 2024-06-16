@@ -51,7 +51,6 @@ func _on_goal_body_entered():
 func _on_trap_trap_entered():
 	#Moves but can get stuck, will need logic handling for checking for platforms.
 	position.x = position.x - 60
-	print("Trapped")
 
 
 func _on_wolf_player_killed():

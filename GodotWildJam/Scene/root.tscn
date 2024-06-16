@@ -62,7 +62,6 @@ position = Vector2(390, 589)
 [node name="Wolf" parent="." instance=ExtResource("4_vmrg6")]
 position = Vector2(-451, 5)
 
-[connection signal="WolfSpeedFromMain" from="." to="Wolf" method="_on_root_wolf_speed_from_main"]
 [connection signal="BodyEntered" from="Goal" to="Player" method="_on_goal_body_entered"]
 [connection signal="TrapEntered" from="Trap" to="Player" method="_on_trap_trap_entered"]
 [connection signal="PlayerKilled" from="Wolf" to="Player" method="_on_wolf_player_killed"]

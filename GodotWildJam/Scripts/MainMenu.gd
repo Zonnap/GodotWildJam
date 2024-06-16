@@ -1,7 +1,5 @@
 extends Node2D
 
-signal WolfSpeed
-
 @onready var v_box_container = $VBoxContainer
 @onready var difficulty = $Difficulty
 var WolfSpeedValue = 0
@@ -25,24 +23,21 @@ func _on_quit_pressed():
 
 
 func _on_easy_pressed():
-	WolfSpeedValue = 100
-	emit_signal("WolfSpeed", WolfSpeedValue)
+	GlobalLogicHandler.WolfSpeedSetter(50)
 	ResetAll()
-	get_tree().change_scene_to_file("res://Scene/GlobalLogicHandler.tscn")
+	get_tree().change_scene_to_file("res://Scene/Root.tscn")
 
 
 func _on_medium_pressed():
-	WolfSpeedValue = 200
-	emit_signal("WolfSpeed", WolfSpeedValue)
+	GlobalLogicHandler.WolfSpeedSetter(100)
 	ResetAll()
-	get_tree().change_scene_to_file("res://Scene/GlobalLogicHandler.tscn")
+	get_tree().change_scene_to_file("res://Scene/Root.tscn")
 
 
 func _on_hard_pressed():
-	WolfSpeedValue = 300
-	emit_signal("WolfSpeed", WolfSpeedValue)
+	GlobalLogicHandler.WolfSpeedSetter(200)
 	ResetAll()
-	get_tree().change_scene_to_file("res://Scene/GlobalLogicHandler.tscn")
+	get_tree().change_scene_to_file("res://Scene/Root.tscn")
 	
 func ResetAll():
 	v_box_container.set_process(true)
