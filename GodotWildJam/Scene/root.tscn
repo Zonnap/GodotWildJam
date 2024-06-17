@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xdvb4s22h32k"]
+[gd_scene load_steps=16 format=3 uid="uid://xdvb4s22h32k"]
 
 [ext_resource type="PackedScene" uid="uid://bogpd62jgqgff" path="res://Scene/Player.tscn" id="1_7al8h"]
 [ext_resource type="Script" path="res://Scripts/Root.gd" id="1_c075k"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://e55ntlqvxi6h" path="res://Resources/textures/Paralax Forest_3.png" id="4_xa6lp"]
 [ext_resource type="Texture2D" uid="uid://brxp76by7hxfc" path="res://Resources/textures/Paralax Forest_2.png" id="5_kg6cs"]
 [ext_resource type="Texture2D" uid="uid://ifjfy2n7jo23" path="res://Resources/textures/Paralax Forest_1.png" id="6_b3iyi"]
+[ext_resource type="PackedScene" uid="uid://bt88plg8boku1" path="res://Scene/DeadZone.tscn" id="13_4f6jo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4s8xt"]
 texture = ExtResource("2_6u0ri")
@@ -170,7 +171,13 @@ position = Vector2(2255, 400)
 position = Vector2(2095, 400)
 
 [node name="Wolf" parent="." instance=ExtResource("4_vmrg6")]
-position = Vector2(-451, 5)
+position = Vector2(-451, 15)
+
+[node name="DeadZone" parent="." instance=ExtResource("13_4f6jo")]
+position = Vector2(614, 909)
+
+[node name="DeadZone2" parent="." instance=ExtResource("13_4f6jo")]
+position = Vector2(897, 909)
 
 [connection signal="BodyEntered" from="Goal" to="Player" method="_on_goal_body_entered"]
 [connection signal="TrapEntered" from="Traps/Trap" to="Player" method="_on_trap_trap_entered"]
