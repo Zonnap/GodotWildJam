@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://0j7d73v8y531"]
+[gd_scene load_steps=4 format=3 uid="uid://0j7d73v8y531"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_7tp6c"]
 [ext_resource type="Texture2D" uid="uid://b4e0v7sawyev" path="res://Resources/Main Menu.png" id="2_8atwg"]
+[ext_resource type="FontFile" uid="uid://c17xk21o2wu4i" path="res://Resources/Fonts/Storyboo.TTF" id="3_qetag"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_7tp6c")
@@ -19,14 +20,17 @@ offset_bottom = 359.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
 text = "Start"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
 text = "Options"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
 text = "Quit"
 
 [node name="Difficulty" type="VBoxContainer" parent="."]
@@ -38,14 +42,17 @@ offset_bottom = 359.0
 
 [node name="Easy" type="Button" parent="Difficulty"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
 text = "Easy"
 
 [node name="Medium" type="Button" parent="Difficulty"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
 text = "Medium"
 
 [node name="Hard" type="Button" parent="Difficulty"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
 text = "Hard"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
