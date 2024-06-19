@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dymd2eke5ov8d"
+path="res://.godot/imported/Ozzy Osbourne - Bark at the Moon.mp3-0bd344317a3d98c0d90e1217d5751e31.mp3str"
+
+[deps]
+
+source_file="res://Resources/Ozzy Osbourne - Bark at the Moon.mp3"
+dest_files=["res://.godot/imported/Ozzy Osbourne - Bark at the Moon.mp3-0bd344317a3d98c0d90e1217d5751e31.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

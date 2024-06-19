@@ -1,12 +1,131 @@
-[gd_scene load_steps=6 format=3 uid="uid://bogpd62jgqgff"]
+[gd_scene load_steps=19 format=3 uid="uid://bogpd62jgqgff"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_d5tg2"]
 [ext_resource type="Texture2D" uid="uid://c687u8dt5y4rc" path="res://Resources/RedSprites/Red Version 2.png" id="2_2p6mn"]
 [ext_resource type="Script" path="res://Scripts/PlayerGroundCast.gd" id="3_iatkn"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="3_tbxr4"]
+[ext_resource type="Texture2D" uid="uid://2vs2k667tiiy" path="res://Resources/RedSprites/Red Version Jumping2.png" id="4_d88f3"]
+[ext_resource type="Texture2D" uid="uid://d1b1xhlxp2584" path="res://Resources/RedSprites/Red Version 3.png" id="5_gh5ro"]
+[ext_resource type="Texture2D" uid="uid://62154s5d6y5j" path="res://Resources/RedSprites/Red Version Jumping3.png" id="5_ybx88"]
+[ext_resource type="Texture2D" uid="uid://dvuvvu538il0u" path="res://Resources/RedSprites/Red Version 4.png" id="6_dxm0y"]
+[ext_resource type="Texture2D" uid="uid://dmg20f2l85h1d" path="res://Resources/RedSprites/Red Version Damage1.png" id="7_ekd1e"]
+[ext_resource type="Texture2D" uid="uid://cxbfvpfpxqhdl" path="res://Resources/RedSprites/Red Version Falling1.png" id="7_gkc7m"]
+[ext_resource type="Texture2D" uid="uid://8b6x3x2fbr84" path="res://Resources/RedSprites/Red Version 5.png" id="7_h7cv4"]
+[ext_resource type="Texture2D" uid="uid://b22u21au7lvj6" path="res://Resources/RedSprites/Red Version Falling2.png" id="8_sq76q"]
+[ext_resource type="Texture2D" uid="uid://8mdhwh3hqsoq" path="res://Resources/RedSprites/Red Version Damage2.png" id="8_xx7qs"]
+[ext_resource type="Texture2D" uid="uid://drte64y6sfms4" path="res://Resources/RedSprites/Red Version Jumping1.png" id="9_7d5h5"]
+[ext_resource type="Texture2D" uid="uid://b8bh46mgenc60" path="res://Resources/RedSprites/Red Version Damage3.png" id="9_ndkow"]
+[ext_resource type="Texture2D" uid="uid://ctj6xypi34f8y" path="res://Resources/RedSprites/Red Version Falling3.png" id="10_mk6wt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5t6cb"]
 size = Vector2(6.66667, 13.6667)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wuwsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_d88f3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ybx88")
+}],
+"loop": true,
+"name": &"Air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2p6mn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ekd1e")
+}, {
+"duration": 3.0,
+"texture": ExtResource("8_xx7qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ndkow")
+}],
+"loop": true,
+"name": &"Damage",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2p6mn")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gkc7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sq76q")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_7d5h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d88f3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ybx88")
+}],
+"loop": true,
+"name": &"jump_initial",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gkc7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sq76q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mk6wt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2p6mn")
+}],
+"loop": true,
+"name": &"landing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_2p6mn")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_gh5ro")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_dxm0y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_h7cv4")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_dxm0y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_gh5ro")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_2p6mn")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_d5tg2")
@@ -28,8 +147,10 @@ script = ExtResource("3_iatkn")
 [node name="Smoothing2D" type="Node2D" parent="."]
 script = ExtResource("3_tbxr4")
 
-[node name="Sprite2D" type="Sprite2D" parent="Smoothing2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Smoothing2D"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_2p6mn")
+sprite_frames = SubResource("SpriteFrames_wuwsp")
+animation = &"Damage"
+frame_progress = 0.495835
 
 [connection signal="GroundCheck" from="RayCast2D" to="." method="_on_ray_cast_2d_ground_check"]

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var sprite_2d = $Smoothing2D/Sprite2D
+@onready var animated_sprite_2d = $Smoothing2D/AnimatedSprite2D
 @onready var ray_cast_2d = $RayCast2D
 var last_floor = false
 var GroundCheck = false
@@ -15,6 +15,8 @@ const JUMP_VELOCITY = -450.0
 var jump_button_counter = 0
 var coyote_time = 15
 var coyote_counter = 0
+var landing_time = 5
+var landing_counter = 0
 const accel = 60
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -24,20 +26,30 @@ func _physics_process(delta):
 	#Movement Logic
 	if Input.is_action_pressed("Left"):
 		velocity.x -= accel
-		sprite_2d.flip_h = true
+		animated_sprite_2d.flip_h = true
+		animated_sprite_2d.play("run")
 	elif Input.is_action_pressed("Right"):
 		velocity.x += accel
-		sprite_2d.flip_h = false
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("run")
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.2)
+		animated_sprite_2d.play("Idle")
 	velocity.x = clamp(velocity.x, -SPEED, SPEED)
+	
 	
 	# Handle jump.
 	if is_on_floor():
 		coyote_counter = coyote_time
+		if landing_counter > 0:
+			animated_sprite_2d.play("landing")
+		landing_counter = 0
 	if !is_on_floor():
 		if coyote_counter > 0:
 			coyote_counter -= 1
+		if landing_counter > 0:
+			landing_counter -= 1
+		animated_sprite_2d.play("Air")
 		velocity.y += 1.25 * gravity * delta
 	if Input.is_action_just_pressed("Jump"):
 		jump_button_counter = jump_button_buffer
@@ -47,11 +59,13 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		jump_button_counter = 0
 		coyote_counter = 0
-		
-	
+		animated_sprite_2d.play("jump_initial")
 	if Input.is_action_just_released("Jump") and !is_on_floor():
 		if velocity.y < 0:
 			velocity.y *= 0.2
+		landing_counter = landing_time
+	if velocity.y > 0:
+		animated_sprite_2d.play("falling")
 		
 		
 	move_and_slide()
@@ -61,11 +75,13 @@ func _physics_process(delta):
 		velocity.x = -1500
 		velocity.y = -350
 		Health = Health - 1
+		animated_sprite_2d.play("Damage")
 		emit_signal("HealthUI", Health)
 	elif GroundCheck == true and TrapCheck == true:
 		velocity.x = -1500
 		velocity.y = -350
 		Health = Health - 1
+		animated_sprite_2d.play("Damage")
 		emit_signal("HealthUI", Health)
 	GroundCheck = false
 	TrapCheck = false
