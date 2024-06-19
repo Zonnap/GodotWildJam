@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var sprite_2d = $Sprite2D
+@onready var sprite_2d = $Smoothing2D/Sprite2D
 @onready var ray_cast_2d = $RayCast2D
 var last_floor = false
 var GroundCheck = false
@@ -21,7 +21,7 @@ const accel = 60
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
-		#Movement Logic
+	#Movement Logic
 	if Input.is_action_pressed("Left"):
 		velocity.x -= accel
 		sprite_2d.flip_h = true
@@ -38,7 +38,7 @@ func _physics_process(delta):
 	if !is_on_floor():
 		if coyote_counter > 0:
 			coyote_counter -= 1
-		velocity.y += gravity * delta
+		velocity.y += 1.25 * gravity * delta
 	if Input.is_action_just_pressed("Jump"):
 		jump_button_counter = jump_button_buffer
 	if jump_button_counter > 0:
@@ -51,7 +51,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_released("Jump") and !is_on_floor():
 		if velocity.y < 0:
-			velocity.y *= 0.4
+			velocity.y *= 0.2
 		
 		
 	move_and_slide()

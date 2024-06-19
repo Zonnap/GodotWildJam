@@ -184,6 +184,7 @@ position = Vector2(897, 909)
 
 [node name="PlayerUI" parent="UI" instance=ExtResource("10_der2e")]
 
+[connection signal="HealthUI" from="Player" to="UI/PlayerUI" method="_on_player_health_ui"]
 [connection signal="BodyEntered" from="Goal" to="Player" method="_on_goal_body_entered"]
 [connection signal="TrapEntered" from="Traps/Trap" to="Player" method="_on_trap_trap_entered"]
 [connection signal="TrapEntered" from="Traps/Trap3" to="Player" method="_on_trap_trap_entered"]
