@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dalmli8vkinux"]
+
+[ext_resource type="Script" path="res://Scripts/Player_UI.gd" id="1_e6xx0"]
+[ext_resource type="Texture2D" uid="uid://bvlw7b163v0nu" path="res://Resources/Heart.png" id="2_yxvcq"]
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_e6xx0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart1" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_yxvcq")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_yxvcq")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_yxvcq")
+expand_mode = 3
+stretch_mode = 4

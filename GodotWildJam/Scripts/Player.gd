@@ -1,58 +1,98 @@
 extends CharacterBody2D
 
-@onready var coyote_time = $CoyoteTime
-var CoyoteFrames = 6
-var CoyoteBool = false
-var Jumping = false
+@onready var sprite_2d = $Sprite2D
+@onready var ray_cast_2d = $RayCast2D
 var last_floor = false
+var GroundCheck = false
+var TrapCheck = false
+var Health = 3
+
+signal HealthUI
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -450.0
+@onready var jump_button_buffer = 15
+var jump_button_counter = 0
+var coyote_time = 15
+var coyote_counter = 0
+const accel = 60
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _ready():
-	coyote_time.wait_time = CoyoteFrames / 60.0
-
 func _physics_process(delta):
-	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and (is_on_floor() or CoyoteBool) and !Jumping:
-		velocity.y = JUMP_VELOCITY
-		Jumping = true 
-		
-	elif is_on_floor():
-		Jumping = false
-	
-	# Add the gravity.
-	if !is_on_floor() and !Jumping:
-		CoyoteBool = true
-		coyote_time.start()
-		velocity.y += gravity * delta
-	elif !is_on_floor():
-		velocity.y += gravity * delta
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("Left", "Right")
-	if direction:
-		velocity.x = direction * SPEED
+		#Movement Logic
+	if Input.is_action_pressed("Left"):
+		velocity.x -= accel
+		sprite_2d.flip_h = true
+	elif Input.is_action_pressed("Right"):
+		velocity.x += accel
+		sprite_2d.flip_h = false
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = lerp(velocity.x, 0.0, 0.2)
+	velocity.x = clamp(velocity.x, -SPEED, SPEED)
+	
+	# Handle jump.
+	if is_on_floor():
+		coyote_counter = coyote_time
+	if !is_on_floor():
+		if coyote_counter > 0:
+			coyote_counter -= 1
+		velocity.y += gravity * delta
+	if Input.is_action_just_pressed("Jump"):
+		jump_button_counter = jump_button_buffer
+	if jump_button_counter > 0:
+		jump_button_counter -= 1
+	if jump_button_counter > 0 and coyote_counter > 0:
+		velocity.y = JUMP_VELOCITY
+		jump_button_counter = 0
+		coyote_counter = 0
+		
+	
+	if Input.is_action_just_released("Jump") and !is_on_floor():
+		if velocity.y < 0:
+			velocity.y *= 0.4
+		
+		
 	move_and_slide()
+	
+	#Trap Logic
+	if GroundCheck == false and TrapCheck == true:
+		velocity.x = -1500
+		velocity.y = -350
+		Health = Health - 1
+		emit_signal("HealthUI", Health)
+	elif GroundCheck == true and TrapCheck == true:
+		velocity.x = -1500
+		velocity.y = -350
+		Health = Health - 1
+		emit_signal("HealthUI", Health)
+	GroundCheck = false
+	TrapCheck = false
+	
+	#Lives Logic
+	if Health == 0:
+		queue_free()
+		get_tree().change_scene_to_file("res://Scene/GameOver.tscn")
 
-func _on_coyote_time_timeout():
-	CoyoteBool = false
+func input() -> Vector2:
+	# Get the input direction and handle the movement/deceleration.
+	var Input_dir = Vector2.ZERO
+	Input_dir.x = Input.get_axis("Left", "Right")
+	Input_dir = Input_dir.normalized()
+	return Input_dir
 
 func _on_goal_body_entered():
 	#Moves to Win Screen
 	queue_free()
 	get_tree().change_scene_to_file("res://Scene/GameWin.tscn")
 
+#Trap Logic
 func _on_trap_trap_entered():
-	#Moves but can get stuck, will need logic handling for checking for platforms.
-	position.x = position.x - 60
-
+	TrapCheck = true
 
 func _on_wolf_player_killed():
 	get_tree().change_scene_to_file("res://Scene/GameOver.tscn")
+
+func _on_ray_cast_2d_ground_check():
+	GroundCheck = true

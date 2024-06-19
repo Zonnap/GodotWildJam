@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://xdvb4s22h32k"]
+[gd_scene load_steps=17 format=3 uid="uid://xdvb4s22h32k"]
 
 [ext_resource type="PackedScene" uid="uid://bogpd62jgqgff" path="res://Scene/Player.tscn" id="1_7al8h"]
 [ext_resource type="Script" path="res://Scripts/Root.gd" id="1_c075k"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://e55ntlqvxi6h" path="res://Resources/textures/Paralax Forest_3.png" id="4_xa6lp"]
 [ext_resource type="Texture2D" uid="uid://brxp76by7hxfc" path="res://Resources/textures/Paralax Forest_2.png" id="5_kg6cs"]
 [ext_resource type="Texture2D" uid="uid://ifjfy2n7jo23" path="res://Resources/textures/Paralax Forest_1.png" id="6_b3iyi"]
+[ext_resource type="PackedScene" uid="uid://dalmli8vkinux" path="res://Scene/Player_UI.tscn" id="10_der2e"]
 [ext_resource type="PackedScene" uid="uid://bt88plg8boku1" path="res://Scene/DeadZone.tscn" id="13_4f6jo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4s8xt"]
@@ -80,7 +81,7 @@ script = ExtResource("1_c075k")
 
 [node name="LevelEnvironment" type="Node2D" parent="."]
 
-[node name="TileMap" type="TileMap" parent="LevelEnvironment"]
+[node name="TileMap" type="TileMap" parent="LevelEnvironment" groups=["Ground"]]
 tile_set = SubResource("TileSet_nxycm")
 rendering_quadrant_size = 32
 format = 2
@@ -151,7 +152,7 @@ texture = ExtResource("4_ooc7j")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_7al8h")]
-position = Vector2(33, 572)
+position = Vector2(28, 584)
 
 [node name="Goal" parent="." instance=ExtResource("2_f72wo")]
 position = Vector2(2823, 328)
@@ -178,6 +179,10 @@ position = Vector2(614, 909)
 
 [node name="DeadZone2" parent="." instance=ExtResource("13_4f6jo")]
 position = Vector2(897, 909)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PlayerUI" parent="UI" instance=ExtResource("10_der2e")]
 
 [connection signal="BodyEntered" from="Goal" to="Player" method="_on_goal_body_entered"]
 [connection signal="TrapEntered" from="Traps/Trap" to="Player" method="_on_trap_trap_entered"]
