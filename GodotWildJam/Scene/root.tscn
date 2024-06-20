@@ -79,7 +79,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_4s8xt")
 
-[node name="Root" type="Node2D"]
+[node name="root" type="Node2D"]
 script = ExtResource("1_c075k")
 
 [node name="LevelEnvironment" type="Node2D" parent="."]
@@ -137,7 +137,6 @@ metadata/_edit_lock_ = true
 
 [node name="ParallaxForeground" type="ParallaxBackground" parent="LevelEnvironment"]
 layer = 0
-visible = false
 follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="LevelEnvironment/ParallaxForeground"]

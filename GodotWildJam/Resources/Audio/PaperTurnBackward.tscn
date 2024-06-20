@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1gmfsgg5kmi3"]
+
+[ext_resource type="AudioStream" uid="uid://lcpi03ckj5p8" path="res://Resources/Audio/PaperTurn_1.wav" id="1_s25q2"]
+
+[node name="PaperTurnBackward" type="AudioStreamPlayer"]
+stream = ExtResource("1_s25q2")
