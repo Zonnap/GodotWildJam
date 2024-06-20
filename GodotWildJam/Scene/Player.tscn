@@ -153,4 +153,12 @@ sprite_frames = SubResource("SpriteFrames_wuwsp")
 animation = &"Damage"
 frame_progress = 0.495835
 
+[node name="SpeedTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="GroundCheck" from="RayCast2D" to="." method="_on_ray_cast_2d_ground_check"]
+[connection signal="timeout" from="SpeedTimer" to="." method="_on_speed_timer_timeout"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

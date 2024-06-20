@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalLogicHandler="*res://Scripts/GlobalLogicHandler.gd"
+CheckPointGlobal="*res://Scripts/CheckPointGlobal.gd"
+HealthGlobal="*res://Scripts/HealthGlobal.gd"
+GameMusicPersist="*res://Scene/GameMusicPersist.tscn"
 
 [editor_plugins]
 

@@ -13,5 +13,5 @@ func _process(_delta):
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
-		body.queue_free()
-		get_tree().change_scene_to_file("res://Scene/GameOver.tscn")
+		HealthGlobal.Health -= 1
+		get_tree().reload_current_scene()

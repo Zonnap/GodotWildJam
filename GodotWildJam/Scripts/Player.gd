@@ -7,9 +7,10 @@ var GroundCheck = false
 var TrapCheck = false
 var Health = 3
 
-signal HealthUI
+const SPEED = 300
+var SPEED_BOOST = 0
+@onready var speed_timer = $SpeedTimer
 
-const SPEED = 300.0
 const JUMP_VELOCITY = -450.0
 @onready var jump_button_buffer = 15
 var jump_button_counter = 0
@@ -17,6 +18,8 @@ var coyote_time = 15
 var coyote_counter = 0
 var landing_time = 5
 var landing_counter = 0
+var JUMP_BOOST = 0
+@onready var jump_timer = $JumpTimer
 const accel = 60
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -25,17 +28,20 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	#Movement Logic
 	if Input.is_action_pressed("Left"):
-		velocity.x -= accel
+		velocity.x -= accel + SPEED_BOOST
 		animated_sprite_2d.flip_h = true
 		animated_sprite_2d.play("run")
 	elif Input.is_action_pressed("Right"):
-		velocity.x += accel
+		velocity.x += accel + SPEED_BOOST
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("run")
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.2)
 		animated_sprite_2d.play("Idle")
-	velocity.x = clamp(velocity.x, -SPEED, SPEED)
+	if SPEED_BOOST == 0:
+		velocity.x = clamp(velocity.x, -SPEED, SPEED)
+	elif  SPEED_BOOST > 0:
+		velocity.x = clamp(velocity.x, -SPEED + SPEED_BOOST, SPEED + SPEED_BOOST)
 	
 	
 	# Handle jump.
@@ -56,7 +62,7 @@ func _physics_process(delta):
 	if jump_button_counter > 0:
 		jump_button_counter -= 1
 	if jump_button_counter > 0 and coyote_counter > 0:
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY + JUMP_BOOST
 		jump_button_counter = 0
 		coyote_counter = 0
 		animated_sprite_2d.play("jump_initial")
@@ -74,21 +80,18 @@ func _physics_process(delta):
 	if GroundCheck == false and TrapCheck == true:
 		velocity.x = -1500
 		velocity.y = -350
-		Health = Health - 1
+		HealthGlobal.Health -= 1
 		animated_sprite_2d.play("Damage")
-		emit_signal("HealthUI", Health)
 	elif GroundCheck == true and TrapCheck == true:
 		velocity.x = -1500
 		velocity.y = -350
-		Health = Health - 1
+		HealthGlobal.Health -= 1
 		animated_sprite_2d.play("Damage")
-		emit_signal("HealthUI", Health)
 	GroundCheck = false
 	TrapCheck = false
 	
 	#Lives Logic
-	if Health == 0:
-		queue_free()
+	if HealthGlobal.Health == 0:
 		get_tree().change_scene_to_file("res://Scene/GameOver.tscn")
 
 func input() -> Vector2:
@@ -112,3 +115,21 @@ func _on_wolf_player_killed():
 
 func _on_ray_cast_2d_ground_check():
 	GroundCheck = true
+
+
+func _on_speed_boost_speed_up():
+	SPEED_BOOST = 20
+	speed_timer.start()
+
+
+func _on_speed_timer_timeout():
+	SPEED_BOOST = 0
+
+
+func _on_jump_boost_jump_up():
+	JUMP_BOOST = -250
+	jump_timer.start()
+
+
+func _on_jump_timer_timeout():
+	JUMP_BOOST = 0

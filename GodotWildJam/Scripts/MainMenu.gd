@@ -26,18 +26,19 @@ func _on_easy_pressed():
 	GlobalLogicHandler.WolfSpeedSetter(50)
 	ResetAll()
 	get_tree().change_scene_to_file("res://Scene/Root.tscn")
-
+	GameMusicPersist.Ready2Rock()
 
 func _on_medium_pressed():
 	GlobalLogicHandler.WolfSpeedSetter(100)
 	ResetAll()
 	get_tree().change_scene_to_file("res://Scene/Root.tscn")
-
+	GameMusicPersist.Ready2Rock()
 
 func _on_hard_pressed():
 	GlobalLogicHandler.WolfSpeedSetter(200)
 	ResetAll()
 	get_tree().change_scene_to_file("res://Scene/Root.tscn")
+	GameMusicPersist.Ready2Rock()
 	
 func ResetAll():
 	v_box_container.set_process(true)

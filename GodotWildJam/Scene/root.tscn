@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://xdvb4s22h32k"]
+[gd_scene load_steps=20 format=3 uid="uid://xdvb4s22h32k"]
 
 [ext_resource type="PackedScene" uid="uid://bogpd62jgqgff" path="res://Scene/Player.tscn" id="1_7al8h"]
 [ext_resource type="Script" path="res://Scripts/Root.gd" id="1_c075k"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://ifjfy2n7jo23" path="res://Resources/textures/Paralax Forest_1.png" id="6_b3iyi"]
 [ext_resource type="PackedScene" uid="uid://dalmli8vkinux" path="res://Scene/Player_UI.tscn" id="10_der2e"]
 [ext_resource type="PackedScene" uid="uid://bt88plg8boku1" path="res://Scene/DeadZone.tscn" id="13_4f6jo"]
-[ext_resource type="AudioStream" uid="uid://dymd2eke5ov8d" path="res://Resources/Ozzy Osbourne - Bark at the Moon.mp3" id="15_mrxbr"]
+[ext_resource type="PackedScene" uid="uid://cyplqdnaci30k" path="res://Scene/SpeedBoost.tscn" id="16_6w5lu"]
+[ext_resource type="PackedScene" uid="uid://cyu7mssy4y1vp" path="res://Scene/Checkpoint.tscn" id="17_6fc6r"]
+[ext_resource type="PackedScene" uid="uid://vxtruq4at27f" path="res://Scene/JumpBoost.tscn" id="17_58t8k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4s8xt"]
 texture = ExtResource("2_6u0ri")
@@ -185,14 +187,28 @@ position = Vector2(897, 909)
 
 [node name="PlayerUI" parent="UI" instance=ExtResource("10_der2e")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_mrxbr")
-autoplay = true
+[node name="SpeedBoost" parent="." instance=ExtResource("16_6w5lu")]
+position = Vector2(878, 520)
 
-[connection signal="HealthUI" from="Player" to="UI/PlayerUI" method="_on_player_health_ui"]
+[node name="SpeedBoost2" parent="." instance=ExtResource("16_6w5lu")]
+position = Vector2(1933, 389)
+
+[node name="Checkpoint" parent="." instance=ExtResource("17_6fc6r")]
+position = Vector2(618, 592)
+
+[node name="JumpBoost" parent="." instance=ExtResource("17_58t8k")]
+position = Vector2(1425, 587)
+
+[node name="JumpBoost2" parent="." instance=ExtResource("17_58t8k")]
+position = Vector2(2345, 587)
+
 [connection signal="BodyEntered" from="Goal" to="Player" method="_on_goal_body_entered"]
 [connection signal="TrapEntered" from="Traps/Trap" to="Player" method="_on_trap_trap_entered"]
 [connection signal="TrapEntered" from="Traps/Trap3" to="Player" method="_on_trap_trap_entered"]
 [connection signal="TrapEntered" from="Traps/Trap4" to="Player" method="_on_trap_trap_entered"]
 [connection signal="TrapEntered" from="Traps/Trap5" to="Player" method="_on_trap_trap_entered"]
 [connection signal="PlayerKilled" from="Wolf" to="Player" method="_on_wolf_player_killed"]
+[connection signal="SpeedUp" from="SpeedBoost" to="Player" method="_on_speed_boost_speed_up"]
+[connection signal="SpeedUp" from="SpeedBoost2" to="Player" method="_on_speed_boost_speed_up"]
+[connection signal="JumpUp" from="JumpBoost" to="Player" method="_on_jump_boost_jump_up"]
+[connection signal="JumpUp" from="JumpBoost2" to="Player" method="_on_jump_boost_jump_up"]

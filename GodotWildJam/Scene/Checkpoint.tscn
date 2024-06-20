@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://cyu7mssy4y1vp"]
+
+[ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="1_yg0yu"]
+[ext_resource type="Texture2D" uid="uid://cq6hxvstcav7i" path="res://Resources/Flag1.png" id="2_8ekw4"]
+[ext_resource type="Texture2D" uid="uid://1q5sjmwhvx2" path="res://Resources/Flag4.png" id="3_fxdf6"]
+[ext_resource type="Texture2D" uid="uid://cxcnyd5mf8oua" path="res://Resources/Flag5.png" id="4_0ljdu"]
+[ext_resource type="Texture2D" uid="uid://d3uqhvqpn4bt6" path="res://Resources/Flag2.png" id="5_cjr82"]
+[ext_resource type="Texture2D" uid="uid://ck7v6fapifc1f" path="res://Resources/Flag3.png" id="6_hxmfb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkfry"]
+size = Vector2(6, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ntesu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fxdf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0ljdu")
+}],
+"loop": true,
+"name": &"IdleFlag",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8ekw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cjr82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hxmfb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fxdf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0ljdu")
+}],
+"loop": true,
+"name": &"RisingFlag",
+"speed": 5.0
+}]
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_yg0yu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_8ekw4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mkfry")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ntesu")
+animation = &"IdleFlag"
+frame = 1
+frame_progress = 0.509144
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

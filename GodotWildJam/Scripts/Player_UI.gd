@@ -11,13 +11,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
-
-
-func _on_player_health_ui(Health):
-	if Health == 2:
+	if HealthGlobal.Health == 2:
 		heart_3.visible = false
-	if Health == 1:
+	if HealthGlobal.Health == 1:
 		heart_2.visible = false
-	if Health == 0:
+	if HealthGlobal.Health == 0:
 		heart_1.visible = false
