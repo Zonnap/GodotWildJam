@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bogpd62jgqgff"]
+[gd_scene load_steps=20 format=3 uid="uid://bogpd62jgqgff"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_d5tg2"]
 [ext_resource type="Texture2D" uid="uid://c687u8dt5y4rc" path="res://Resources/RedSprites/Red Version 2.png" id="2_2p6mn"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://drte64y6sfms4" path="res://Resources/RedSprites/Red Version Jumping1.png" id="9_7d5h5"]
 [ext_resource type="Texture2D" uid="uid://b8bh46mgenc60" path="res://Resources/RedSprites/Red Version Damage3.png" id="9_ndkow"]
 [ext_resource type="Texture2D" uid="uid://ctj6xypi34f8y" path="res://Resources/RedSprites/Red Version Falling3.png" id="10_mk6wt"]
+[ext_resource type="Script" path="res://Scripts/CheckForPlatform.gd" id="17_ix1fa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5t6cb"]
 size = Vector2(6.66667, 13.6667)
@@ -128,6 +129,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+floor_snap_length = 5.0
 script = ExtResource("1_d5tg2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -159,6 +161,10 @@ wait_time = 5.0
 [node name="JumpTimer" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="CheckForPlatform" type="RayCast2D" parent="."]
+script = ExtResource("17_ix1fa")
+
 [connection signal="GroundCheck" from="RayCast2D" to="." method="_on_ray_cast_2d_ground_check"]
 [connection signal="timeout" from="SpeedTimer" to="." method="_on_speed_timer_timeout"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="PlatformCheck" from="CheckForPlatform" to="." method="_on_check_for_platform_platform_check"]

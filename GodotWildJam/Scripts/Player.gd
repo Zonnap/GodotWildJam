@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+@onready var check_for_platform = $CheckForPlatform
 @onready var animated_sprite_2d = $Smoothing2D/AnimatedSprite2D
 @onready var ray_cast_2d = $RayCast2D
 var last_floor = false
 var GroundCheck = false
+var PlatformCheck = false
 var TrapCheck = false
 var Health = 3
 
@@ -72,6 +74,10 @@ func _physics_process(delta):
 		landing_counter = landing_time
 	if velocity.y > 0:
 		animated_sprite_2d.play("falling")
+	if PlatformCheck == true:
+		self.floor_snap_length = 10
+		PlatformCheck = false
+		
 		
 		
 	move_and_slide()
@@ -133,3 +139,7 @@ func _on_jump_boost_jump_up():
 
 func _on_jump_timer_timeout():
 	JUMP_BOOST = 0
+
+
+func _on_check_for_platform_platform_check():
+	PlatformCheck = true
