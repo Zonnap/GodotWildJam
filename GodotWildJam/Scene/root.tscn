@@ -18,12 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://cyu7mssy4y1vp" path="res://Scene/Checkpoint.tscn" id="17_6fc6r"]
 [ext_resource type="PackedScene" uid="uid://vxtruq4at27f" path="res://Scene/JumpBoost.tscn" id="17_58t8k"]
 [ext_resource type="PackedScene" uid="uid://dsv0cu73602mv" path="res://Scene/FallingLogTest.tscn" id="18_tfv2x"]
-[ext_resource type="PackedScene" uid="uid://d4no7i6qpq5hl" path="res://Scene/Enemy.tscn" id="19_kwns4"]
-[ext_resource type="PackedScene" uid="uid://mkjool0goall" path="res://Scene/FallingLogTest3.tscn" id="20_k02kt"]
-[ext_resource type="PackedScene" uid="uid://bgt8likmlwrqp" path="res://Scene/FallingLogTest2.tscn" id="21_vfg1b"]
-[ext_resource type="PackedScene" uid="uid://b4mv15xpwuidf" path="res://Scene/FallingLogTest4.tscn" id="22_h8l85"]
-[ext_resource type="PackedScene" uid="uid://bmpo2xu20r1rx" path="res://Scene/FallingLogTest5.tscn" id="23_smyfd"]
-[ext_resource type="PackedScene" uid="uid://v8fk6k0315hw" path="res://Scene/FallingLogTest6.tscn" id="24_2gie7"]
+[ext_resource type="PackedScene" path="res://Scene/Enemy.tscn" id="19_kwns4"]
+[ext_resource type="PackedScene" path="res://Scene/FallingLogTest3.tscn" id="20_k02kt"]
+[ext_resource type="PackedScene" path="res://Scene/FallingLogTest2.tscn" id="21_vfg1b"]
+[ext_resource type="PackedScene" path="res://Scene/FallingLogTest4.tscn" id="22_h8l85"]
+[ext_resource type="PackedScene" path="res://Scene/FallingLogTest5.tscn" id="23_smyfd"]
+[ext_resource type="PackedScene" path="res://Scene/FallingLogTest6.tscn" id="24_2gie7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4s8xt"]
 texture = ExtResource("2_6u0ri")

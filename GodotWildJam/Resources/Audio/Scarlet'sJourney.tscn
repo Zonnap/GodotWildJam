@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dipt5pu8s0egq"]
+
+[node name="Scarlet\'sJourney" type="AudioStreamPlayer"]
