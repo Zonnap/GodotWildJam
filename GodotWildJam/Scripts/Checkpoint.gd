@@ -10,6 +10,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Entered == true:
+		animated_sprite_2d.visible = true
 		animated_sprite_2d.play("IdleFlag")
 
 
@@ -17,4 +18,8 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
 		CheckPointGlobal.last_position = global_position
 		Entered = true
-		animated_sprite_2d.play("RisingFlag")
+		RaiseTheFlags()
+
+func RaiseTheFlags():
+	animated_sprite_2d.visible = true
+	animated_sprite_2d.play("RisingFlag")

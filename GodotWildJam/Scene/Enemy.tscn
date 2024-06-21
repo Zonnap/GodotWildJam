@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4no7i6qpq5hl"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ebtft"]
+[ext_resource type="Texture2D" uid="uid://djwf7u5rwaorf" path="res://icon.svg" id="2_dm38y"]
+[ext_resource type="Script" path="res://Scripts/TerrainChecker.gd" id="3_csvvm"]
+[ext_resource type="Script" path="res://Scripts/TerrainChecker2.gd" id="4_dp8eh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahcep"]
+size = Vector2(57, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln27q"]
+size = Vector2(62, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txmw4"]
+size = Vector2(18, 57)
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_ebtft")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dm38y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_ahcep")
+
+[node name="Damage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_ln27q")
+
+[node name="Attack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(-35, 2)
+shape = SubResource("RectangleShape2D_txmw4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Attack"]
+position = Vector2(30, 2)
+shape = SubResource("RectangleShape2D_txmw4")
+
+[node name="TerrainChecker" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
+target_position = Vector2(-50, 0)
+script = ExtResource("3_csvvm")
+
+[node name="TerrainChecker2" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
+target_position = Vector2(50, 0)
+script = ExtResource("4_dp8eh")
+
+[connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]
+[connection signal="body_entered" from="Attack" to="." method="_on_attack_body_entered"]
+[connection signal="PlayerSide" from="TerrainChecker" to="." method="_on_terrain_checker_player_side"]
+[connection signal="TerrainCheck" from="TerrainChecker" to="." method="_on_terrain_checker_terrain_check"]
+[connection signal="PlayerSide" from="TerrainChecker2" to="." method="_on_terrain_checker_2_player_side"]
+[connection signal="TerrainCheck" from="TerrainChecker2" to="." method="_on_terrain_checker_2_terrain_check"]

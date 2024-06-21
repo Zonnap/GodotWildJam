@@ -13,7 +13,7 @@ const SPEED = 300
 var SPEED_BOOST = 0
 @onready var speed_timer = $SpeedTimer
 
-const JUMP_VELOCITY = -450.0
+const JUMP_VELOCITY = -480.0
 @onready var jump_button_buffer = 15
 var jump_button_counter = 0
 var coyote_time = 15
@@ -23,6 +23,10 @@ var landing_counter = 0
 var JUMP_BOOST = 0
 @onready var jump_timer = $JumpTimer
 const accel = 60
+
+var Attacked = false
+var AttackedDIR = 1
+var PlayerBounce = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -77,6 +81,9 @@ func _physics_process(delta):
 	if PlatformCheck == true:
 		self.floor_snap_length = 10
 		PlatformCheck = false
+	if PlayerBounce == true:
+		velocity.y = -1 * (400)
+		PlayerBounce = false
 		
 		
 		
@@ -96,9 +103,18 @@ func _physics_process(delta):
 	GroundCheck = false
 	TrapCheck = false
 	
+	#AttackedLogic
+	if Attacked == true:
+		velocity.x = -2000 * AttackedDIR
+		velocity.y = -350 * AttackedDIR
+		HealthGlobal.Health -= 1
+		animated_sprite_2d.play("Damage")
+		Attacked = false
+	
 	#Lives Logic
 	if HealthGlobal.Health == 0:
 		get_tree().change_scene_to_file("res://Scene/GameOver.tscn")
+	
 
 func input() -> Vector2:
 	# Get the input direction and handle the movement/deceleration.
@@ -124,7 +140,7 @@ func _on_ray_cast_2d_ground_check():
 
 
 func _on_speed_boost_speed_up():
-	SPEED_BOOST = 20
+	SPEED_BOOST = 100
 	speed_timer.start()
 
 
@@ -143,3 +159,11 @@ func _on_jump_timer_timeout():
 
 func _on_check_for_platform_platform_check():
 	PlatformCheck = true
+
+
+func _on_enemy_attack_player(DirectionUpdate):
+	Attacked = true
+	AttackedDIR = -1 * DirectionUpdate
+
+func _on_enemy_player_bounce():
+	PlayerBounce = true

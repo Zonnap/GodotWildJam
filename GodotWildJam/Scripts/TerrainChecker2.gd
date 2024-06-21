@@ -1,7 +1,9 @@
 extends RayCast2D
-@onready var check_for_platform = $"."
+@onready var terrain_checker_2 = $"."
 
-signal PlatformCheck
+
+signal TerrainCheck
+signal PlayerSide
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,8 +13,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if is_colliding():
-		var obj = check_for_platform.get_collider()
-		if obj == null:
-			pass
-		elif obj.is_in_group("FallingLog"):
-			emit_signal("PlatformCheck")
+		var obj = terrain_checker_2.get_collider()
+		if obj.is_in_group("Player"):
+			emit_signal("PlayerSide", 1)
+		else:
+			emit_signal("TerrainCheck")

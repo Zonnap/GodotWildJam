@@ -15,6 +15,10 @@ offset_bottom = 359.0
 layout_mode = 2
 text = "Retry"
 
+[node name="MainMenu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Options"
@@ -24,5 +28,6 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

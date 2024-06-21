@@ -46,19 +46,31 @@ func _on_quit_pressed():
 func _on_easy_pressed():
 	GlobalLogicHandler.WolfSpeedSetter(50)
 	ResetAll()
-	get_tree().change_scene_to_file("res://Scene/root.tscn")
+	get_tree().change_scene_to_file("res://Scene/Root.tscn")
 	GameMusicPersist.Ready2Rock()
 
 func _on_medium_pressed():
 	GlobalLogicHandler.WolfSpeedSetter(100)
 	ResetAll()
-	get_tree().change_scene_to_file("res://Scene/root.tscn")
+	get_tree().change_scene_to_file("res://Scene/Root.tscn")
 	GameMusicPersist.Ready2Rock()
 
 func _on_hard_pressed():
+	GlobalLogicHandler.WolfSpeedSetter(150)
+	ResetAll()
+	get_tree().change_scene_to_file("res://Scene/Root.tscn")
+	GameMusicPersist.Ready2Rock()
+	
+func _on_nightmare_pressed():
 	GlobalLogicHandler.WolfSpeedSetter(200)
 	ResetAll()
-	get_tree().change_scene_to_file("res://Scene/root.tscn")
+	get_tree().change_scene_to_file("res://Scene/Root.tscn")
+	GameMusicPersist.Ready2Rock()
+	
+func _on_red_riding_hood_pressed():
+	GlobalLogicHandler.WolfSpeedSetter(300)
+	ResetAll()
+	get_tree().change_scene_to_file("res://Scene/Root.tscn")
 	GameMusicPersist.Ready2Rock()
 	
 func ResetAll():

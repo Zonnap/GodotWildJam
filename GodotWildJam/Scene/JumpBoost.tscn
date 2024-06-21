@@ -1,10 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://vxtruq4at27f"]
+[gd_scene load_steps=7 format=3 uid="uid://vxtruq4at27f"]
 
 [ext_resource type="Texture2D" uid="uid://doriuxto75ih7" path="res://Resources/JumpBoost.png" id="1_76c0y"]
 [ext_resource type="Script" path="res://Scripts/JumpBoost.gd" id="1_koi5m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvtej"]
 size = Vector2(36, 32)
+
+[sub_resource type="Animation" id="Animation_g2n1u"]
+resource_name = "FloatingPU"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kyaea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsgir"]
+_data = {
+"FloatingPU": SubResource("Animation_g2n1u"),
+"RESET": SubResource("Animation_kyaea")
+}
 
 [node name="JumpBoost" type="Node2D"]
 script = ExtResource("1_koi5m")
@@ -13,10 +51,34 @@ script = ExtResource("1_koi5m")
 scale = Vector2(2, 2)
 texture = ExtResource("1_76c0y")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+position = Vector2(0, -5)
+scale = Vector2(0.5, 0.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_jvtej")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D"]
+position = Vector2(0, -8.83525)
+scale = Vector2(0.666667, 0.666667)
+amount = 2
+lifetime = 0.5
+explosiveness = 0.37
+randomness = 0.05
+lifetime_randomness = 0.29
+emission_shape = 3
+emission_rect_extents = Vector2(20, 10)
+spread = 95.91
+gravity = Vector2(0, 200)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.937016, 0.925028, 0.790111, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fsgir")
+}
+autoplay = "FloatingPU"
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

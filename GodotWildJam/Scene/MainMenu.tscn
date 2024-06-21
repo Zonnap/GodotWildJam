@@ -111,10 +111,10 @@ text = "Quit"
 
 [node name="Difficulty" type="VBoxContainer" parent="."]
 visible = false
-offset_left = 567.0
-offset_top = 319.0
-offset_right = 607.0
-offset_bottom = 359.0
+offset_left = 510.0
+offset_top = 342.0
+offset_right = 661.0
+offset_bottom = 498.0
 
 [node name="Easy" type="Button" parent="Difficulty"]
 layout_mode = 2
@@ -130,6 +130,16 @@ text = "Medium"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_qetag")
 text = "Hard"
+
+[node name="Nightmare" type="Button" parent="Difficulty"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Nightmare"
+
+[node name="Red Riding Hood" type="Button" parent="Difficulty"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Red Riding Hood"
 
 [node name="PaperTurnBackward" parent="." instance=ExtResource("5_dg38s")]
 bus = &"SFX"
@@ -147,3 +157,5 @@ bus = &"SFX"
 [connection signal="pressed" from="Difficulty/Easy" to="." method="_on_easy_pressed"]
 [connection signal="pressed" from="Difficulty/Medium" to="." method="_on_medium_pressed"]
 [connection signal="pressed" from="Difficulty/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Difficulty/Nightmare" to="." method="_on_nightmare_pressed"]
+[connection signal="pressed" from="Difficulty/Red Riding Hood" to="." method="_on_red_riding_hood_pressed"]
