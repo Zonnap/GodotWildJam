@@ -12,6 +12,7 @@ var WolfSpeedValue = 0
 
 func _ready():
 	difficulty.set_process(false)
+	v_box_container.grab_focus()
 
 #start
 func _on_start_pressed():
@@ -20,6 +21,7 @@ func _on_start_pressed():
 	v_box_container.visible = false
 	difficulty.set_process(true)
 	difficulty.visible = true
+	difficulty.grab_focus()
 
 #options
 func _on_options_pressed():

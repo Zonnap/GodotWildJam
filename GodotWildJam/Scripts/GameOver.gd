@@ -1,5 +1,10 @@
 extends Node2D
 
+@onready var v_box_container = $VBoxContainer
+
+func _ready():
+	v_box_container.grab_focus()
+
 func _process(_delta):
 	GameMusicPersist.KillTheBeat()
 

@@ -28,6 +28,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("Start")
+focus_neighbor_bottom = NodePath("Quit")
+focus_mode = 2
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -115,6 +118,9 @@ offset_left = 510.0
 offset_top = 342.0
 offset_right = 661.0
 offset_bottom = 498.0
+focus_neighbor_top = NodePath("Easy")
+focus_neighbor_bottom = NodePath("Red Riding Hood")
+focus_mode = 2
 
 [node name="Easy" type="Button" parent="Difficulty"]
 layout_mode = 2

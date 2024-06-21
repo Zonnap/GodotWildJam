@@ -26,3 +26,4 @@ func _on_quit_pressed():
 
 func _on_timer_timeout():
 	v_box_container.visible = true
+	v_box_container.grab_focus()

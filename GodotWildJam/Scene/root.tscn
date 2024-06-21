@@ -261,13 +261,13 @@ position = Vector2(3037, 278)
 position = Vector2(2881, 271)
 
 [node name="FallingLog" parent="." instance=ExtResource("22_h8l85")]
-position = Vector2(2784, 7)
+position = Vector2(2782, -25)
 
 [node name="FallingLog2" parent="." instance=ExtResource("23_smyfd")]
-position = Vector2(2917, 38)
+position = Vector2(2928, 80)
 
 [node name="FallingLog5" parent="." instance=ExtResource("24_2gie7")]
-position = Vector2(3038, -23)
+position = Vector2(3057, -72)
 
 [connection signal="BodyEntered" from="Goal" to="Player" method="_on_goal_body_entered"]
 [connection signal="TrapEntered" from="Traps/Trap4" to="Player" method="_on_trap_trap_entered"]
