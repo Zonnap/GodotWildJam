@@ -138,6 +138,7 @@ metadata/_edit_lock_ = true
 
 [node name="ParallaxForeground" type="ParallaxBackground" parent="LevelEnvironment"]
 layer = 0
+visible = false
 follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="LevelEnvironment/ParallaxForeground"]
@@ -155,7 +156,7 @@ texture = ExtResource("4_ooc7j")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_7al8h")]
-position = Vector2(2649, 307)
+position = Vector2(2, 307)
 
 [node name="Goal" parent="." instance=ExtResource("2_f72wo")]
 position = Vector2(6107, 181)
