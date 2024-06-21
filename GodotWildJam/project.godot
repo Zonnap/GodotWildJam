@@ -14,7 +14,7 @@ config/name="Godot Wild Jam"
 run/main_scene="res://Scene/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
-boot_splash/minimum_display_time=3
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
