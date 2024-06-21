@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Trap.gd" id="1_k32l0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t077f"]
-size = Vector2(28, 33)
+size = Vector2(17, 28)
 
 [sub_resource type="Gradient" id="Gradient_l3wh1"]
 
@@ -16,7 +16,7 @@ script = ExtResource("1_k32l0")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -0.5)
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_t077f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
