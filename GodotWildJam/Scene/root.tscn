@@ -162,7 +162,7 @@ texture = ExtResource("4_ooc7j")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_7al8h")]
-position = Vector2(2, 307)
+position = Vector2(3, 583)
 
 [node name="Goal" parent="." instance=ExtResource("2_f72wo")]
 position = Vector2(6107, 181)
