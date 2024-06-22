@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d4no7i6qpq5hl"]
+[gd_scene load_steps=14 format=3 uid="uid://c5wjg27nu8iba"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ebtft"]
 [ext_resource type="Texture2D" uid="uid://cqp511m3fxxei" path="res://Resources/WolfSprite/wolfsheet3.png" id="2_hd2cc"]
