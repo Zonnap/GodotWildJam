@@ -205,12 +205,6 @@ position = Vector2(3631, 783)
 [node name="Trap10" parent="Traps" instance=ExtResource("3_0lq3o")]
 position = Vector2(4190, 209)
 
-[node name="Trap17" parent="Traps" instance=ExtResource("3_0lq3o")]
-position = Vector2(4625, 720)
-
-[node name="Trap19" parent="Traps" instance=ExtResource("3_0lq3o")]
-position = Vector2(4094, 750)
-
 [node name="Wolf" parent="." instance=ExtResource("4_vmrg6")]
 position = Vector2(-451, 15)
 
@@ -230,23 +224,17 @@ position = Vector2(1671, 365)
 [node name="SpeedBoost3" parent="." instance=ExtResource("16_6w5lu")]
 position = Vector2(4050, 719)
 
-[node name="SpeedBoost4" parent="." instance=ExtResource("16_6w5lu")]
-position = Vector2(4360, 203)
-
 [node name="Checkpoint" parent="." instance=ExtResource("17_6fc6r")]
 position = Vector2(544, 592)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("17_6fc6r")]
-position = Vector2(2582, 336)
+position = Vector2(2581, 335)
 
 [node name="Checkpoint3" parent="." instance=ExtResource("17_6fc6r")]
-position = Vector2(4855, 528)
+position = Vector2(4855, 525)
 
 [node name="JumpBoost" parent="." instance=ExtResource("17_58t8k")]
 position = Vector2(3922, 567)
-
-[node name="JumpBoost3" parent="." instance=ExtResource("17_58t8k")]
-position = Vector2(4317, 208)
 
 [node name="JumpBoost2" parent="." instance=ExtResource("17_58t8k")]
 position = Vector2(2710, 508)
@@ -294,15 +282,11 @@ position = Vector2(3057, -72)
 [connection signal="TrapEntered" from="Traps/Trap8" to="Player" method="_on_trap_trap_entered"]
 [connection signal="TrapEntered" from="Traps/Trap9" to="Player" method="_on_trap_trap_entered"]
 [connection signal="TrapEntered" from="Traps/Trap10" to="Player" method="_on_trap_trap_entered"]
-[connection signal="TrapEntered" from="Traps/Trap17" to="Player" method="_on_trap_trap_entered"]
-[connection signal="TrapEntered" from="Traps/Trap19" to="Player" method="_on_trap_trap_entered"]
 [connection signal="PlayerKilled" from="Wolf" to="Player" method="_on_wolf_player_killed"]
 [connection signal="SpeedUp" from="SpeedBoost" to="Player" method="_on_speed_boost_speed_up"]
 [connection signal="SpeedUp" from="SpeedBoost2" to="Player" method="_on_speed_boost_speed_up"]
 [connection signal="SpeedUp" from="SpeedBoost3" to="Player" method="_on_speed_boost_speed_up"]
-[connection signal="SpeedUp" from="SpeedBoost4" to="Player" method="_on_speed_boost_speed_up"]
 [connection signal="JumpUp" from="JumpBoost" to="Player" method="_on_jump_boost_jump_up"]
-[connection signal="JumpUp" from="JumpBoost3" to="Player" method="_on_jump_boost_jump_up"]
 [connection signal="JumpUp" from="JumpBoost2" to="Player" method="_on_jump_boost_jump_up"]
 [connection signal="AttackPlayer" from="Enemy" to="Player" method="_on_enemy_attack_player"]
 [connection signal="PlayerBounce" from="Enemy" to="Player" method="_on_enemy_player_bounce"]

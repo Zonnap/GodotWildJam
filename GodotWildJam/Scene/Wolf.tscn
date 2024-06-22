@@ -1,74 +1,38 @@
-[gd_scene load_steps=9 format=3 uid="uid://d6qy0cdartk8"]
+[gd_scene load_steps=5 format=3 uid="uid://d6qy0cdartk8"]
 
 [ext_resource type="Script" path="res://Scripts/Wolf.gd" id="1_rmrbm"]
-[ext_resource type="Texture2D" uid="uid://c1dnwa5noc81g" path="res://Resources/WolfSprites/wolfsheet1.png" id="2_vrfaw"]
+
+[sub_resource type="Gradient" id="Gradient_ty6vq"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vords"]
+gradient = SubResource("Gradient_ty6vq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atqpt"]
-size = Vector2(252, 162)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v52n3"]
-atlas = ExtResource("2_vrfaw")
-region = Rect2(320, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ofbs0"]
-atlas = ExtResource("2_vrfaw")
-region = Rect2(512, 128, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2xaeq"]
-atlas = ExtResource("2_vrfaw")
-region = Rect2(576, 128, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_isncs"]
-atlas = ExtResource("2_vrfaw")
-region = Rect2(320, 160, 64, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_iwlgy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v52n3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ofbs0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2xaeq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_isncs")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+size = Vector2(252, 598)
 
 [node name="Wolf" type="CharacterBody2D" groups=["Wolf"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_rmrbm")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 296.25)
+scale = Vector2(1, 593.5)
+texture = SubResource("GradientTexture1D_vords")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, 513)
+position = Vector2(-1, 297)
 shape = SubResource("RectangleShape2D_atqpt")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 515)
+position = Vector2(-1, 297)
 shape = SubResource("RectangleShape2D_atqpt")
 
 [node name="HuntDelay" type="Timer" parent="."]
 wait_time = 5.0
 
 [node name="Timer" type="Timer" parent="."]
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
-position = Vector2(-28, 519)
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_iwlgy")
-autoplay = "default"
-frame_progress = 0.644361
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
