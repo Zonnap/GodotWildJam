@@ -1,5 +1,7 @@
 extends CharacterBody2D
 @onready var terrain_checker = $TerrainChecker
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
 
 signal AttackPlayer(DirectionUpdate)
 signal PlayerBounce()
@@ -11,7 +13,6 @@ var AttackUpdate = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -34,10 +35,12 @@ func _on_attack_body_entered(body):
 
 func _on_terrain_checker_terrain_check():
 	DirectionUpdate = -1
+	animated_sprite_2d.scale.x = animated_sprite_2d.scale.x * -1
 
 
 func _on_terrain_checker_2_terrain_check():
 	DirectionUpdate = 1
+	animated_sprite_2d.scale.x = animated_sprite_2d.scale.x * -1
 
 
 func _on_terrain_checker_player_side(Value):

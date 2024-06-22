@@ -17,7 +17,7 @@ func _ready():
 	SPEED = GlobalLogicHandler.WolfSpeedGetter()
 
 func _physics_process(_delta):
-	position.y = player.global_position.y
+	position.y = player.global_position.y + -30
 	movement_system()
 
 

@@ -83,3 +83,7 @@ func ResetAll():
 
 func _on_exit_delay_timeout():
 	get_tree().quit()
+
+
+func _on_credits_pressed():
+	get_tree().change_scene_to_file("res://Scene/Credits.tscn")

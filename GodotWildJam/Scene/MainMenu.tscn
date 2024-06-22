@@ -101,6 +101,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_qetag")
 text = "Key bindings"
 
+[node name="Credits" type="Button" parent="VBoxContainer/Options/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Credits"
+
 [node name="BackOptions" type="Button" parent="VBoxContainer/Options/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_qetag")
@@ -161,6 +166,7 @@ autoplay = true
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options/VBoxContainer/Keybindings" to="." method="_on_keybindings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options/VBoxContainer/BackOptions" to="." method="_on_back_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="VBoxContainer/Quit/ExitDelay" to="." method="_on_exit_delay_timeout"]
