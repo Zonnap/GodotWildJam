@@ -6,9 +6,10 @@ signal PlayerKilled
 
 @export var hunt_distance = 600.0
 @export var hunt_speed = 500
-@export var fear_distance = 300
 
 var SPEED = 100.0
+
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -17,7 +18,6 @@ func _ready():
 	SPEED = GlobalLogicHandler.WolfSpeedGetter()
 
 func _physics_process(_delta):
-	position.y = player.global_position.y
 	movement_system()
 
 
@@ -34,8 +34,4 @@ func movement_system():
 		velocity.x = 1 * hunt_speed
 	else:
 		velocity.x = 1 * SPEED
-	
-	if distance < fear_distance:
-		print("RUN")
-		
 	move_and_slide()

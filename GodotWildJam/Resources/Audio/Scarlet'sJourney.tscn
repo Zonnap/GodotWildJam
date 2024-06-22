@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dipt5pu8s0egq"]
-
-[ext_resource type="AudioStream" uid="uid://cklea8f5f6nkl" path="res://Resources/Audio/Scarlet’s Journey.wav" id="1_aoft2"]
-
-[node name="Scarlet\'sJourney" type="AudioStreamPlayer"]
-stream = ExtResource("1_aoft2")
-bus = &"Music"
