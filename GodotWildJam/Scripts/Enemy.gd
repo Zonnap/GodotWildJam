@@ -40,12 +40,10 @@ func _on_attack_body_entered(body):
 
 func _on_terrain_checker_terrain_check():
 	DirectionUpdate = -1
-	animated_sprite_2d.scale.x = animated_sprite_2d.scale.x * -1
 
 
 func _on_terrain_checker_2_terrain_check():
 	DirectionUpdate = 1
-	animated_sprite_2d.scale.x = animated_sprite_2d.scale.x * -1
 
 
 func _on_terrain_checker_player_side(Value):
