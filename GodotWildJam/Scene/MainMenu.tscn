@@ -1,157 +1,261 @@
-[gd_scene load_steps=8 format=3 uid="uid://0j7d73v8y531"]
+[gd_scene load_steps=49 format=3 uid="uid://0j7d73v8y531"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_7tp6c"]
-[ext_resource type="Texture2D" uid="uid://b4e0v7sawyev" path="res://Resources/Main Menu.png" id="2_8atwg"]
 [ext_resource type="FontFile" uid="uid://c17xk21o2wu4i" path="res://Resources/Fonts/Storyboo.TTF" id="3_qetag"]
 [ext_resource type="Script" path="res://Scripts/MasterVolume.gd" id="4_ogv80"]
 [ext_resource type="PackedScene" uid="uid://c1gmfsgg5kmi3" path="res://Resources/Audio/PaperTurnBackward.tscn" id="5_dg38s"]
 [ext_resource type="PackedScene" uid="uid://c73lpw3kvcfty" path="res://Resources/Audio/PaperTurnForward.tscn" id="6_05pcc"]
 [ext_resource type="PackedScene" uid="uid://dipt5pu8s0egq" path="res://Resources/Audio/Scarlet'sJourney.tscn" id="7_bfhvh"]
+[ext_resource type="Texture2D" uid="uid://0i5bqgc0lfr0" path="res://Resources/textures/Paralax Forest_4.png" id="7_yxbok"]
+[ext_resource type="Texture2D" uid="uid://e55ntlqvxi6h" path="res://Resources/textures/Paralax Forest_3.png" id="8_co6j3"]
+[ext_resource type="Texture2D" uid="uid://brxp76by7hxfc" path="res://Resources/textures/Paralax Forest_2.png" id="9_qg3dv"]
+[ext_resource type="Texture2D" uid="uid://ifjfy2n7jo23" path="res://Resources/textures/Paralax Forest_1.png" id="10_tkrdn"]
+[ext_resource type="Texture2D" uid="uid://cphg2ne1jo2rf" path="res://Resources/textures/foreground.png" id="11_5jua4"]
+[ext_resource type="Texture2D" uid="uid://bxfbh7x4ncbi0" path="res://Resources/textures/black.png" id="12_c8y2k"]
+[ext_resource type="Script" path="res://Scripts/MainMenuCamera.gd" id="13_3liw5"]
+[ext_resource type="Texture2D" uid="uid://cmwyrxdpqy1br" path="res://Resources/01.png" id="13_15ksl"]
+[ext_resource type="Texture2D" uid="uid://cs463c708chir" path="res://Resources/Credit Scroll.png" id="15_fvhpw"]
+[ext_resource type="Texture2D" uid="uid://romm774obguv" path="res://Resources/Keyboard UI asset pack/Keyboard_UI_Black_Animated.png" id="16_q35x5"]
+[ext_resource type="Texture2D" uid="uid://by6s3nl4piuyw" path="res://Resources/NameBanner.png" id="16_typkn"]
+[ext_resource type="PackedScene" uid="uid://cyplqdnaci30k" path="res://Scene/SpeedBoost.tscn" id="17_6tdf2"]
+[ext_resource type="PackedScene" uid="uid://vxtruq4at27f" path="res://Scene/JumpBoost.tscn" id="18_4nf6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emeec"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73nhk"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kih83"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7tam"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saqep"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(160, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x54eh"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(176, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aytdo"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(192, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxrfw"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(208, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwqwb"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(240, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eulul"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(256, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6m06"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(272, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3dbw"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(288, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oodq3"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl4rh"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l56ss"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbyy0"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4loc"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(160, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62nem"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(176, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wls5"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(192, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw2mt"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(208, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5nm5"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(0, 352, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q2r2"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(48, 352, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx4cr"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(96, 352, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyh82"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(144, 352, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aypj5"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0nu6"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4215j"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(112, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtg75"]
+atlas = ExtResource("16_q35x5")
+region = Rect2(128, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_657tp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emeec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73nhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kih83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7tam")
+}],
+"loop": true,
+"name": &"A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saqep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x54eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aytdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxrfw")
+}],
+"loop": true,
+"name": &"ArrowLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwqwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eulul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6m06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3dbw")
+}],
+"loop": true,
+"name": &"ArrowRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oodq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rl4rh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l56ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbyy0")
+}],
+"loop": true,
+"name": &"ArrowUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4loc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62nem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wls5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw2mt")
+}],
+"loop": true,
+"name": &"D",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5nm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q2r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx4cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyh82")
+}],
+"loop": true,
+"name": &"Space",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aypj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0nu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4215j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtg75")
+}],
+"loop": true,
+"name": &"W",
+"speed": 5.0
+}]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_7tp6c")
-
-[node name="MainMenu" type="Sprite2D" parent="."]
-position = Vector2(575.5, 323.5)
-scale = Vector2(2.0193, 0.916431)
-texture = ExtResource("2_8atwg")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 529.0
-offset_top = 342.0
-offset_right = 638.0
-offset_bottom = 466.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_neighbor_top = NodePath("Start")
-focus_neighbor_bottom = NodePath("Quit")
-focus_mode = 2
-
-[node name="Start" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Start"
-
-[node name="HowToPlay" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "How to Play"
-
-[node name="Options" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Options"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Options"]
-visible = false
-layout_mode = 0
-offset_left = 112.0
-offset_top = -66.0
-offset_right = 230.0
-offset_bottom = -6.0
-
-[node name="Audio" type="Button" parent="VBoxContainer/Options/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Audio"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Options/VBoxContainer/Audio"]
-visible = false
-layout_mode = 0
-offset_left = 127.0
-offset_right = 186.0
-offset_bottom = 60.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Options/VBoxContainer/Audio/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="MusicVolume" type="Label" parent="VBoxContainer/Options/VBoxContainer/Audio/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Music Volume"
-
-[node name="MusicVolumeSlider" type="HSlider" parent="VBoxContainer/Options/VBoxContainer/Audio/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-script = ExtResource("4_ogv80")
-bus_name = "Music"
-
-[node name="SFXVolume" type="Label" parent="VBoxContainer/Options/VBoxContainer/Audio/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "SFX Volume"
-
-[node name="SFXVolumeSlider" type="HSlider" parent="VBoxContainer/Options/VBoxContainer/Audio/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-script = ExtResource("4_ogv80")
-bus_name = "SFX"
-
-[node name="Keybindings" type="Button" parent="VBoxContainer/Options/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Key bindings"
-
-[node name="Credits" type="Button" parent="VBoxContainer/Options/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Credits"
-
-[node name="BackOptions" type="Button" parent="VBoxContainer/Options/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Back"
-
-[node name="Quit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Quit"
-
-[node name="ExitDelay" type="Timer" parent="VBoxContainer/Quit"]
-
-[node name="Difficulty" type="VBoxContainer" parent="."]
-visible = false
-offset_left = 510.0
-offset_top = 342.0
-offset_right = 661.0
-offset_bottom = 498.0
-focus_neighbor_top = NodePath("Easy")
-focus_neighbor_bottom = NodePath("Red Riding Hood")
-focus_mode = 2
-
-[node name="Easy" type="Button" parent="Difficulty"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Easy"
-
-[node name="Medium" type="Button" parent="Difficulty"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Medium"
-
-[node name="Hard" type="Button" parent="Difficulty"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Hard"
-
-[node name="Nightmare" type="Button" parent="Difficulty"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Nightmare"
-
-[node name="Red Riding Hood" type="Button" parent="Difficulty"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qetag")
-text = "Red Riding Hood"
 
 [node name="PaperTurnBackward" parent="." instance=ExtResource("5_dg38s")]
 bus = &"SFX"
@@ -162,16 +266,588 @@ bus = &"SFX"
 [node name="Scarlet\'sJourney" parent="." instance=ExtResource("7_bfhvh")]
 autoplay = true
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options/VBoxContainer/Keybindings" to="." method="_on_keybindings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options/VBoxContainer/BackOptions" to="." method="_on_back_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="timeout" from="VBoxContainer/Quit/ExitDelay" to="." method="_on_exit_delay_timeout"]
-[connection signal="pressed" from="Difficulty/Easy" to="." method="_on_easy_pressed"]
-[connection signal="pressed" from="Difficulty/Medium" to="." method="_on_medium_pressed"]
-[connection signal="pressed" from="Difficulty/Hard" to="." method="_on_hard_pressed"]
-[connection signal="pressed" from="Difficulty/Nightmare" to="." method="_on_nightmare_pressed"]
-[connection signal="pressed" from="Difficulty/Red Riding Hood" to="." method="_on_red_riding_hood_pressed"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(0.62, 0.62)
+transform = Transform2D(0.62, 0, 0, 0.62, 0, 0)
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("7_yxbok")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("8_co6j3")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("9_qg3dv")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("10_tkrdn")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxForeground" type="ParallaxBackground" parent="."]
+layer = 0
+follow_viewport_scale = 2.0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxForeground"]
+motion_scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxForeground/ParallaxLayer"]
+position = Vector2(-27, -319)
+texture = ExtResource("11_5jua4")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxForeground/ParallaxLayer/Sprite2D"]
+position = Vector2(7, 1080)
+texture = ExtResource("12_c8y2k")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 332)
+script = ExtResource("13_3liw5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -555.0
+offset_top = -294.0
+offset_right = -446.0
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("Start")
+focus_neighbor_bottom = NodePath("Quit")
+focus_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Start" type="Button" parent="Camera2D/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Start"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/VBoxContainer/Start"]
+z_index = -1
+position = Vector2(54.5, 13)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="HowToPlay" type="Button" parent="Camera2D/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "How to Play"
+flat = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Camera2D/VBoxContainer/HowToPlay"]
+z_index = -1
+position = Vector2(54.5, 14)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Options" type="Button" parent="Camera2D/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Options"
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/VBoxContainer/Options"]
+visible = false
+layout_mode = 0
+offset_left = 118.5
+offset_top = -83.0
+offset_right = 236.5
+offset_bottom = 9.0
+theme_override_constants/separation = 14
+
+[node name="Audio" type="Button" parent="Camera2D/VBoxContainer/Options/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Audio"
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/VBoxContainer/Options/VBoxContainer/Audio"]
+visible = false
+layout_mode = 0
+offset_left = 127.0
+offset_right = 186.0
+offset_bottom = 60.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/VBoxContainer/Options/VBoxContainer/Audio/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MusicVolume" type="Label" parent="Camera2D/VBoxContainer/Options/VBoxContainer/Audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Camera2D/VBoxContainer/Options/VBoxContainer/Audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_ogv80")
+bus_name = "Music"
+
+[node name="SFXVolume" type="Label" parent="Camera2D/VBoxContainer/Options/VBoxContainer/Audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "SFX Volume"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="Camera2D/VBoxContainer/Options/VBoxContainer/Audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_ogv80")
+bus_name = "SFX"
+
+[node name="Sprite2D4" type="Sprite2D" parent="Camera2D/VBoxContainer/Options/VBoxContainer/Audio"]
+z_index = -1
+position = Vector2(57.5, 15)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Credits" type="Button" parent="Camera2D/VBoxContainer/Options/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Credits"
+flat = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="Camera2D/VBoxContainer/Options/VBoxContainer/Credits"]
+z_index = -1
+position = Vector2(58, 14.5)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="BackOptions" type="Button" parent="Camera2D/VBoxContainer/Options/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Back"
+flat = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Camera2D/VBoxContainer/Options/VBoxContainer/BackOptions"]
+z_index = -1
+position = Vector2(59, 14.5)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Camera2D/VBoxContainer/Options"]
+z_index = -1
+position = Vector2(55, 15)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Quit" type="Button" parent="Camera2D/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Quit"
+flat = true
+
+[node name="ExitDelay" type="Timer" parent="Camera2D/VBoxContainer/Quit"]
+wait_time = 0.25
+
+[node name="Sprite2D4" type="Sprite2D" parent="Camera2D/VBoxContainer/Quit"]
+z_index = -1
+position = Vector2(55, 16)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Difficulty" type="VBoxContainer" parent="Camera2D"]
+visible = false
+offset_left = -559.0
+offset_top = -296.0
+offset_right = -406.0
+offset_bottom = -58.0
+scale = Vector2(2, 2)
+focus_neighbor_top = NodePath("Easy")
+focus_neighbor_bottom = NodePath("Red Riding Hood")
+focus_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Easy" type="Button" parent="Camera2D/Difficulty"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Easy"
+flat = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Camera2D/Difficulty/Easy"]
+z_index = -1
+position = Vector2(77.5, 14.5)
+scale = Vector2(3.30083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Medium" type="Button" parent="Camera2D/Difficulty"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Medium"
+flat = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Camera2D/Difficulty/Medium"]
+z_index = -1
+position = Vector2(78, 13.5)
+scale = Vector2(3.30083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Hard" type="Button" parent="Camera2D/Difficulty"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Hard"
+flat = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="Camera2D/Difficulty/Hard"]
+z_index = -1
+position = Vector2(78, 13.5)
+scale = Vector2(3.30083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Nightmare" type="Button" parent="Camera2D/Difficulty"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Nightmare"
+flat = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="Camera2D/Difficulty/Nightmare"]
+z_index = -1
+position = Vector2(78, 13.5)
+scale = Vector2(3.30083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Red Riding Hood" type="Button" parent="Camera2D/Difficulty"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Red Riding Hood"
+flat = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Camera2D/Difficulty/Red Riding Hood"]
+z_index = -1
+position = Vector2(77, 12.5)
+scale = Vector2(3.60083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Back" type="Button" parent="Camera2D/Difficulty"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Back"
+flat = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="Camera2D/Difficulty/Back"]
+z_index = -1
+position = Vector2(77.5, 13.5)
+scale = Vector2(3.60083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Credits" type="Sprite2D" parent="Camera2D"]
+visible = false
+position = Vector2(-2, 21)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("15_fvhpw")
+
+[node name="BackOptions2" type="Button" parent="Camera2D/Credits"]
+z_index = 1
+offset_left = -89.1429
+offset_top = 57.7143
+offset_right = -37.1429
+offset_bottom = 85.7143
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Back"
+flat = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Camera2D/Credits/BackOptions2"]
+z_index = -1
+position = Vector2(28.5714, 14.8571)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="CreditsNext" type="Button" parent="Camera2D/Credits"]
+z_index = 1
+offset_left = 33.1428
+offset_top = 57.7143
+offset_right = 91.1429
+offset_bottom = 89.7143
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+theme_override_font_sizes/font_size = 20
+text = "Next"
+flat = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Camera2D/Credits/CreditsNext"]
+z_index = -1
+position = Vector2(28.5714, 14.8571)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="Label" type="Label" parent="Camera2D/Credits"]
+offset_left = -75.4286
+offset_top = -167.429
+offset_right = 3650.57
+offset_bottom = 4770.57
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+theme_override_font_sizes/font_size = 300
+text = "A Special Thank you!
+
+* Adventure Pack - Anokolisa
+
+* Simple 2D Pixel Art Wooden Spikes - 1Jauncarlos
+
+* [LPC] Wolf Animation - William Thompson
+
+"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Camera2D/Credits"]
+visible = false
+offset_left = -76.0
+offset_top = -170.286
+offset_right = 3381.0
+offset_bottom = 3316.71
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+theme_override_font_sizes/font_size = 300
+text = "A Special Thank you!
+
+* Water+ - SciGho
+
+* The Godot Wild Jam!
+
+And a Very Special Thank you for playing our game!"
+autowrap_mode = 2
+
+[node name="HowToPlay" type="Sprite2D" parent="Camera2D"]
+visible = false
+position = Vector2(-2, 21)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("15_fvhpw")
+
+[node name="H2PBack" type="Button" parent="Camera2D/HowToPlay"]
+z_index = 1
+offset_left = -89.1429
+offset_top = 57.7143
+offset_right = -37.1429
+offset_bottom = 85.7143
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+text = "Back"
+flat = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Camera2D/HowToPlay/H2PBack"]
+z_index = -1
+position = Vector2(28.5714, 14.8571)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="H2PNext" type="Button" parent="Camera2D/HowToPlay"]
+z_index = 1
+offset_left = 33.1428
+offset_top = 57.7143
+offset_right = 91.1429
+offset_bottom = 89.7143
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+theme_override_font_sizes/font_size = 20
+text = "Next"
+flat = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Camera2D/HowToPlay/H2PNext"]
+z_index = -1
+position = Vector2(28.5714, 14.8571)
+scale = Vector2(2.52083, 2)
+texture = ExtResource("13_15ksl")
+
+[node name="HowToPlayLabel" type="Label" parent="Camera2D/HowToPlay"]
+offset_left = -75.4286
+offset_top = -167.429
+offset_right = 3650.57
+offset_bottom = 4770.57
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+theme_override_font_sizes/font_size = 300
+text = "Run Right -
+
+
+
+Run Left -
+
+
+
+Jump -"
+autowrap_mode = 2
+
+[node name="ArrowRightAnimation" type="AnimatedSprite2D" parent="Camera2D/HowToPlay/HowToPlayLabel"]
+position = Vector2(275, 777)
+scale = Vector2(60, 60)
+sprite_frames = SubResource("SpriteFrames_657tp")
+animation = &"ArrowRight"
+autoplay = "ArrowRight"
+
+[node name="ArrowLeftAnimation" type="AnimatedSprite2D" parent="Camera2D/HowToPlay/HowToPlayLabel"]
+position = Vector2(274.286, 2240)
+scale = Vector2(60, 60)
+sprite_frames = SubResource("SpriteFrames_657tp")
+animation = &"ArrowLeft"
+autoplay = "ArrowLeft"
+
+[node name="AAnimation" type="AnimatedSprite2D" parent="Camera2D/HowToPlay/HowToPlayLabel"]
+position = Vector2(1428.57, 2194.29)
+scale = Vector2(60, 60)
+sprite_frames = SubResource("SpriteFrames_657tp")
+animation = &"A"
+autoplay = "A"
+
+[node name="SpaceAnimation" type="AnimatedSprite2D" parent="Camera2D/HowToPlay/HowToPlayLabel"]
+position = Vector2(708.571, 3737.14)
+scale = Vector2(60, 60)
+sprite_frames = SubResource("SpriteFrames_657tp")
+animation = &"Space"
+autoplay = "Space"
+
+[node name="WAnimation" type="AnimatedSprite2D" parent="Camera2D/HowToPlay/HowToPlayLabel"]
+position = Vector2(2582.86, 3748.57)
+scale = Vector2(60, 60)
+sprite_frames = SubResource("SpriteFrames_657tp")
+animation = &"W"
+autoplay = "W"
+
+[node name="ArrowUpAnimation" type="AnimatedSprite2D" parent="Camera2D/HowToPlay/HowToPlayLabel"]
+position = Vector2(3485.71, 3737.14)
+scale = Vector2(60, 60)
+sprite_frames = SubResource("SpriteFrames_657tp")
+animation = &"ArrowUp"
+autoplay = "ArrowUp"
+
+[node name="DAnimation" type="AnimatedSprite2D" parent="Camera2D/HowToPlay/HowToPlayLabel"]
+position = Vector2(1395, 777)
+scale = Vector2(60, 60)
+sprite_frames = SubResource("SpriteFrames_657tp")
+animation = &"D"
+autoplay = "D"
+
+[node name="HowToPlayLabel2" type="Label" parent="Camera2D/HowToPlay"]
+visible = false
+offset_left = -76.0
+offset_top = -170.286
+offset_right = 3381.0
+offset_bottom = 3316.71
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+theme_override_font_sizes/font_size = 300
+text = "Jump Boost - Increases your Jump Height for a Limited Time.
+
+
+Speed Boost - Increases your Speed for a Limited Time."
+autowrap_mode = 2
+
+[node name="SpeedBoost" parent="Camera2D/HowToPlay/HowToPlayLabel2" instance=ExtResource("17_6tdf2")]
+position = Vector2(1417.14, 3725.71)
+scale = Vector2(20, 20)
+
+[node name="JumpBoost" parent="Camera2D/HowToPlay/HowToPlayLabel2" instance=ExtResource("18_4nf6k")]
+position = Vector2(1405.71, 1577.14)
+scale = Vector2(20, 20)
+
+[node name="TitleController" type="Node2D" parent="Camera2D"]
+position = Vector2(6, 404)
+
+[node name="Title" type="Label" parent="Camera2D/TitleController"]
+z_index = 1
+offset_left = -35.0
+offset_top = -281.0
+offset_right = 712.0
+offset_bottom = -165.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.93408, 0.93408, 0.93408, 1)
+theme_override_fonts/font = ExtResource("3_qetag")
+theme_override_font_sizes/font_size = 60
+text = "Peril in the Pines"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/TitleController"]
+z_index = -1
+position = Vector2(170, -243)
+rotation = -3.14159
+scale = Vector2(4, 2)
+texture = ExtResource("16_typkn")
+
+[connection signal="pressed" from="Camera2D/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Camera2D/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="Camera2D/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Camera2D/VBoxContainer/Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Camera2D/VBoxContainer/Options/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Camera2D/VBoxContainer/Options/VBoxContainer/BackOptions" to="." method="_on_back_options_pressed"]
+[connection signal="pressed" from="Camera2D/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="Camera2D/VBoxContainer/Quit/ExitDelay" to="." method="_on_exit_delay_timeout"]
+[connection signal="pressed" from="Camera2D/Difficulty/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="Camera2D/Difficulty/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="Camera2D/Difficulty/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Camera2D/Difficulty/Nightmare" to="." method="_on_nightmare_pressed"]
+[connection signal="pressed" from="Camera2D/Difficulty/Red Riding Hood" to="." method="_on_red_riding_hood_pressed"]
+[connection signal="pressed" from="Camera2D/Difficulty/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Camera2D/Credits/BackOptions2" to="." method="_on_back_options_2_pressed"]
+[connection signal="pressed" from="Camera2D/Credits/CreditsNext" to="." method="_on_credits_next_pressed"]
+[connection signal="pressed" from="Camera2D/HowToPlay/H2PBack" to="." method="_on_h_2p_back_pressed"]
+[connection signal="pressed" from="Camera2D/HowToPlay/H2PNext" to="." method="_on_h_2p_next_pressed"]

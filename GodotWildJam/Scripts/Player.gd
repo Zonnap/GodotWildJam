@@ -47,7 +47,7 @@ func _physics_process(delta):
 	if SPEED_BOOST == 0:
 		velocity.x = clamp(velocity.x, -SPEED, SPEED)
 	elif  SPEED_BOOST > 0:
-		velocity.x = clamp(velocity.x, -SPEED + SPEED_BOOST, SPEED + SPEED_BOOST)
+		velocity.x = clamp(velocity.x, -SPEED - SPEED_BOOST, SPEED + SPEED_BOOST)
 	
 	
 	# Handle jump.
