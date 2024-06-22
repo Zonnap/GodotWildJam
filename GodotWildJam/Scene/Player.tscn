@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bogpd62jgqgff"]
+[gd_scene load_steps=26 format=3 uid="uid://bogpd62jgqgff"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_d5tg2"]
 [ext_resource type="Texture2D" uid="uid://c687u8dt5y4rc" path="res://Resources/RedSprites/Red Version 2.png" id="2_2p6mn"]
@@ -16,7 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://drte64y6sfms4" path="res://Resources/RedSprites/Red Version Jumping1.png" id="9_7d5h5"]
 [ext_resource type="Texture2D" uid="uid://b8bh46mgenc60" path="res://Resources/RedSprites/Red Version Damage3.png" id="9_ndkow"]
 [ext_resource type="Texture2D" uid="uid://ctj6xypi34f8y" path="res://Resources/RedSprites/Red Version Falling3.png" id="10_mk6wt"]
+[ext_resource type="Texture2D" uid="uid://mwj1iutpmfqv" path="res://Resources/RedSprites/Red Version Idling1.png" id="10_qao0o"]
+[ext_resource type="Texture2D" uid="uid://c4154bicaiusu" path="res://Resources/RedSprites/Red Version Idling2.png" id="11_7tqe4"]
+[ext_resource type="Texture2D" uid="uid://bvfhq5tyvuhmr" path="res://Resources/RedSprites/Red Version Idling3.png" id="12_nwhsg"]
+[ext_resource type="Texture2D" uid="uid://dy0ml0au0qunp" path="res://Resources/RedSprites/Red Version Idling4.png" id="13_u82mu"]
+[ext_resource type="Texture2D" uid="uid://cghlkbogb5hdh" path="res://Resources/RedSprites/Red Version Idling5.png" id="14_2w6vs"]
 [ext_resource type="Script" path="res://Scripts/CheckForPlatform.gd" id="17_ix1fa"]
+[ext_resource type="Texture2D" uid="uid://bgk48o5nkrg18" path="res://Resources/RedSprites/Red Version 6.png" id="22_ntjos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5t6cb"]
 size = Vector2(6.66667, 13.6667)
@@ -53,7 +59,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2p6mn")
+"texture": ExtResource("10_qao0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7tqe4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nwhsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_u82mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2w6vs")
 }],
 "loop": true,
 "name": &"Idle",
@@ -114,6 +132,12 @@ animations = [{
 "duration": 0.5,
 "texture": ExtResource("7_h7cv4")
 }, {
+"duration": 1.0,
+"texture": ExtResource("22_ntjos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h7cv4")
+}, {
 "duration": 0.5,
 "texture": ExtResource("6_dxm0y")
 }, {
@@ -125,7 +149,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 10.0
+"speed": 6.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -152,7 +176,8 @@ script = ExtResource("3_tbxr4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Smoothing2D"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_wuwsp")
-animation = &"landing"
+animation = &"run"
+frame_progress = 0.177626
 
 [node name="SpeedTimer" type="Timer" parent="."]
 wait_time = 5.0
