@@ -1,5 +1,5 @@
 extends Node2D
-
+@onready var sprite_2d = $Sprite2D
 @onready var v_box_container = $VBoxContainer
 
 func _ready():
@@ -12,12 +12,7 @@ func _on_retry_pressed():
 	HealthGlobal.Health = 3
 	CheckPointGlobal.last_position = null
 	GameMusicPersist.Ready2Rock()
-	get_tree().change_scene_to_file("res://Scene/root.tscn")
-
-
-func _on_options_pressed():
-	get_tree().change_scene_to_file("res://Scene/Options.tscn")
-
+	get_tree().change_scene_to_file("res://Scene/Root.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit()

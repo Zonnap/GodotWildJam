@@ -17,6 +17,7 @@ func _process(_delta):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
 		CheckPointGlobal.last_position = global_position
+		CheckPointGlobal.last_position.y = global_position.y - 20
 		Entered = true
 		RaiseTheFlags()
 

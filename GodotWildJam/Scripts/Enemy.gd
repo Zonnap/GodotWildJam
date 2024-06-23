@@ -2,7 +2,6 @@ extends CharacterBody2D
 @onready var terrain_checker = $TerrainChecker
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-
 signal AttackPlayer(DirectionUpdate)
 signal PlayerBounce()
 

@@ -1,31 +1,124 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnea4htqmggj2"]
+[gd_scene load_steps=9 format=3 uid="uid://bnea4htqmggj2"]
 
 [ext_resource type="Script" path="res://Scripts/GameWin.gd" id="1_15qlx"]
+[ext_resource type="FontFile" uid="uid://c17xk21o2wu4i" path="res://Resources/Fonts/Storyboo.TTF" id="2_7wmms"]
+[ext_resource type="Texture2D" uid="uid://cmwyrxdpqy1br" path="res://Resources/01.png" id="3_snwh1"]
+[ext_resource type="AudioStream" uid="uid://cqjgwao0ttrt2" path="res://Resources/Audio/JDSherbert - Minigame Music Pack - Smooth Driving.mp3" id="4_iptdu"]
+[ext_resource type="Texture2D" uid="uid://bsf0ls4is2sni" path="res://Resources/Untitled-1.png" id="5_85w7h"]
+
+[sub_resource type="Animation" id="Animation_alcj3"]
+resource_name = "AudioVariation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-30.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ywnoo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-30.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fcgo2"]
+_data = {
+"AudioVariation": SubResource("Animation_alcj3"),
+"RESET": SubResource("Animation_ywnoo")
+}
 
 [node name="GameWin" type="Node2D"]
 script = ExtResource("1_15qlx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 567.0
-offset_top = 319.0
-offset_right = 607.0
-offset_bottom = 359.0
+offset_left = 19.0
+offset_top = 23.0
+offset_right = 115.0
+offset_bottom = 144.0
+scale = Vector2(2, 2)
 focus_neighbor_top = NodePath("Main Menu")
 focus_neighbor_bottom = NodePath("Quit")
 focus_mode = 2
+theme_override_constants/separation = 14
 
 [node name="Main Menu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_7wmms")
 text = "Main Menu"
+flat = true
 
-[node name="Options" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Options"
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Main Menu"]
+z_index = -1
+position = Vector2(50, 15.5)
+scale = Vector2(2.38103, 2)
+texture = ExtResource("3_snwh1")
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_7wmms")
 text = "Quit"
+flat = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="VBoxContainer/Quit"]
+z_index = -1
+position = Vector2(50, 17)
+scale = Vector2(2.38103, 2)
+texture = ExtResource("3_snwh1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_iptdu")
+volume_db = -30.0
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AudioStreamPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_fcgo2")
+}
+
+[node name="MenuTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(577, 327)
+texture = ExtResource("5_85w7h")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 668.0
+offset_top = 11.0
+offset_right = 1119.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.980193, 0.757006, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 11
+theme_override_fonts/font = ExtResource("2_7wmms")
+theme_override_font_sizes/font_size = 50
+text = "Congratulations!"
 
 [connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="AudioStreamPlayer/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MenuTimer" to="." method="_on_menu_timer_timeout"]

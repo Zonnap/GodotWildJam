@@ -2328,7 +2328,7 @@ position = Vector2(544, 592)
 position = Vector2(2581, 337)
 
 [node name="Checkpoint3" parent="." instance=ExtResource("18_sbm7v")]
-position = Vector2(4855, 525)
+position = Vector2(4855, 528)
 
 [node name="JumpBoost" parent="." instance=ExtResource("19_h20ji")]
 position = Vector2(3922, 567)

@@ -1,36 +1,101 @@
-[gd_scene load_steps=2 format=3 uid="uid://d32ald5sp7a3a"]
+[gd_scene load_steps=6 format=3 uid="uid://d32ald5sp7a3a"]
 
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_a08bf"]
+[ext_resource type="FontFile" uid="uid://c17xk21o2wu4i" path="res://Resources/Fonts/Storyboo.TTF" id="2_2tb1w"]
+[ext_resource type="Texture2D" uid="uid://cipv285qwq0p0" path="res://Resources/07.png" id="3_ils53"]
+[ext_resource type="Texture2D" uid="uid://dwpayclgi4ql0" path="res://Resources/Background.png" id="4_q3fsw"]
+[ext_resource type="AudioStream" uid="uid://cqxhbnt7c0al" path="res://Resources/Audio/Ambient 9.mp3" id="5_wp6ly"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_a08bf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 567.0
-offset_top = 319.0
-offset_right = 607.0
-offset_bottom = 359.0
+offset_left = 471.0
+offset_top = 246.0
+offset_right = 571.0
+offset_bottom = 412.0
+scale = Vector2(2, 2)
 focus_neighbor_top = NodePath("Retry")
 focus_neighbor_bottom = NodePath("Quit")
 focus_mode = 2
+theme_override_constants/separation = 16
 
 [node name="Retry" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.516089, 0, 0.102381, 1)
+theme_override_colors/font_hover_color = Color(0.517647, 0, 0.101961, 1)
+theme_override_fonts/font = ExtResource("2_2tb1w")
 text = "Retry"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Retry"]
+z_index = -1
+position = Vector2(49, 15)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("3_ils53")
 
 [node name="MainMenu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.517647, 0, 0.101961, 1)
+theme_override_colors/font_hover_color = Color(0.517647, 0, 0.101961, 1)
+theme_override_fonts/font = ExtResource("2_2tb1w")
 text = "Main Menu"
+flat = true
 
-[node name="Options" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Options"
+[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer/MainMenu"]
+z_index = -1
+position = Vector2(49, 17)
+scale = Vector2(0.415005, 0.335)
+texture = ExtResource("3_ils53")
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.517647, 0, 0.101961, 1)
+theme_override_colors/font_hover_color = Color(0.517647, 0, 0.101961, 1)
+theme_override_fonts/font = ExtResource("2_2tb1w")
 text = "Quit"
+flat = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="VBoxContainer/Quit"]
+z_index = -1
+position = Vector2(49, 15)
+scale = Vector2(0.415005, 0.334995)
+texture = ExtResource("3_ils53")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(609, 378)
+texture = ExtResource("4_q3fsw")
+
+[node name="SubViewport" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -183.0
+offset_right = 6648.0
+offset_bottom = 967.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(0.517647, 0, 0.101961, 1)
+theme_override_fonts/font = ExtResource("2_2tb1w")
+theme_override_font_sizes/font_size = 1000
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wp6ly")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
